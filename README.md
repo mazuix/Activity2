@@ -63,30 +63,31 @@ npm run dev
 ```
 App runs on `http://localhost:5173`
 
-## 📡 API Endpoints
+## API Endpoints
 
 **Base URL:** `/api`
 
 ### Authentication
 - `POST /api/auth/register` - Register user
-- `POST /api/auth/login` - Login (returns JWT token)
+- `POST /api/auth/login` - Log in an existing user and receive a token.
 
 ### Notes (Protected - requires JWT)
-- `GET /api/notes` - Get all notes
-- `POST /api/notes` - Create note
-- `PATCH /api/notes/:id` - Update note
-- `DELETE /api/notes/:id` - Delete note
+- `GET /api/notes` - Get all notes of the logged in user
+- `GET /api/notes/:id` - Get a single note by its ID
+- `POST /api/notes` - Create a new note
+- `PATCH /api/notes/:id` - Update a specific note
+- `DELETE /api/notes/:id` - Delete a specific note
 
 **Authorization header:** `Bearer <your_jwt_token>`
 
-## 📁 Project Structure
+## Project Structure
 
 ```
-cloudpad/
+Activity 2/
 ├── backend/
 │   ├── src/
-│   │   ├── auth/          # Authentication module
-│   │   ├── notes/         # Notes CRUD operations
+│   │   ├── auth/          # Authentication
+│   │   ├── notes/         # Notes CRUD
 │   │   ├── users/         # User management
 │   │   └── database/      # TypeORM entities
 │   └── notes.db           # SQLite database (auto-created)
@@ -99,37 +100,33 @@ cloudpad/
     └── dist/              # Production build
 ```
 
-## 🔒 Security
+## Security
 
 - Passwords hashed with bcrypt
-- JWT token authentication
 - Protected routes with guards
 - User-specific note ownership
-- CORS configured for frontend
 
-## 🚀 Production Build
+## Instructions
 
 **Backend:**
 ```bash
 cd backend
-npm run build
-npm run start:prod
+npm run start:dev
 ```
 
 **Frontend:**
 ```bash
 cd frontend
-npm run build
-# Deploy dist/ folder to hosting service
+npm run dev
 ```
 
-## 📚 Documentation
+## Documentation
 
 - **API Docs:** http://localhost:3000/api-docs (Swagger UI)
 - **Frontend:** Update `src/services/api.ts` for API URL
 - **Backend:** Configure CORS in `src/main.ts`
 
-## 🔧 Common Issues
+## Common Issues
 
 **Port in use:** Change port in `backend/src/main.ts` or `frontend/vite.config.ts`
 
