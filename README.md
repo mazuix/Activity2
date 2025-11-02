@@ -30,6 +30,7 @@ This is a notes app where users can register, log in, and manage their private n
 git clone https://github.com/mazuix/Activity2.git
 cd cloudpad
 
+# Install backend
 cd backend
 npm install
 
