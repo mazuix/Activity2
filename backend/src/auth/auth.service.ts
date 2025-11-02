@@ -36,11 +36,10 @@ export class AuthService {
       throw new ConflictException('Username already exists');
     }
 
-    // REMOVED: Hash password here - let the entity do it!
-    // Just pass the plain password
+
     const user = await this.usersService.create(
       createUserDto.username,
-      createUserDto.password, // Pass plain password, entity will hash it
+      createUserDto.password, 
     );
 
     const { password, ...result } = user;

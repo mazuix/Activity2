@@ -13,14 +13,9 @@ export class JwtStrategy extends PassportStrategy(Strategy) {
     });
   }
 
-  /**
-   * Passport automatically verifies the token signature and expiration.
-   * This method runs after verification.
-   * The returned payload is attached to the request object as `req.user`.
-   */
+  
   async validate(payload: any) {
-    // We trust the payload since the token is verified.
-    // We return the user's ID and username.
+    
     return { id: payload.sub, username: payload.username };
   }
 }

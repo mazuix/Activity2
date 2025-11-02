@@ -1,8 +1,7 @@
 import { ApiProperty } from '@nestjs/swagger';
 import { IsNotEmpty, IsString } from 'class-validator';
 
-// This DTO is primarily for Swagger documentation.
-// LocalStrategy handles the validation logic.
+// For Swagger
 export class LoginDto {
   @ApiProperty({ example: 'mazui' })
   @IsString()

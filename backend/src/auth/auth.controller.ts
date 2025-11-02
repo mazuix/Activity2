@@ -1,6 +1,6 @@
 import { Controller, Post, Body, UseGuards, Request } from '@nestjs/common';
 import { AuthService } from './auth.service';
-import { CreateUserDto } from './dto/create-user.dto'; // <-- THE FIX IS HERE
+import { CreateUserDto } from './dto/create-user.dto'; 
 import { LoginDto } from './dto/login.dto';
 import { LocalAuthGuard } from './guards/local-auth.guard';
 import { ApiTags, ApiOperation } from '@nestjs/swagger';
@@ -20,7 +20,6 @@ export class AuthController {
   @Post('login')
   @ApiOperation({ summary: 'Log in a user' })
   async login(@Body() loginDto: LoginDto, @Request() req) {
-    // req.user is attached by LocalAuthGuard (from LocalStrategy)
     return this.authService.login(req.user);
   }
 }
